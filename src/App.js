@@ -1,23 +1,29 @@
-import logo from './logo.svg';
 import './App.css';
+import { library } from '@fortawesome/fontawesome-svg-core';
+import { faBook , faCartShopping, faUser} from '@fortawesome/free-solid-svg-icons';
+
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 function App() {
+
+  library.add(faBook);
+
   return (
+
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+
+      <h1>Welcome to our website</h1>
+
+      <div className="alert alert-primary" role="alert">
+        A simple primary alert—check it out!
+      </div>
+
+      <FontAwesomeIcon icon="book" />
+
+      <FontAwesomeIcon icon={faCartShopping} />
+
+      <FontAwesomeIcon icon={faUser} />
+
     </div>
   );
 }
