@@ -11,6 +11,8 @@ import 'bootstrap/dist/js/bootstrap.min.js';
 import {BrowserRouter, Routes, Route} from "react-router-dom";
 import HeaderNavbar from "./Components/HeaderNavbar";
 import NotFound from "./Components/NotFound"
+import LandingMain from './Components/LandingMain';
+import LandingFeatures from './Components/LandingFeatures';
 
 function App() {
 
@@ -28,7 +30,7 @@ function App() {
         <BrowserRouter>
           <Routes>
 
-            <Route  path="/" element= {<div><HeaderNavbar/></div>} />
+            <Route  path="/" element= {<div><HeaderNavbar/><LandingMain/><LandingFeatures/></div>} />
 
             <Route  path="*" element= {<div><HeaderNavbar/><NotFound/></div>} />
 

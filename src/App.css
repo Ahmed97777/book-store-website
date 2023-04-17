@@ -20,6 +20,7 @@
     font-weight: bold;
     color: var(--front-color);
     text-decoration: none;
+    transition: 0.3s;
 }
 
 .headerLogo a:hover {
@@ -45,6 +46,7 @@
     border-radius: 5px;
     background-color: var(--front-color);
     color: #fff;
+    transition: 0.3s;
 }
 
 .headerSearch button:hover {
@@ -59,6 +61,7 @@
     margin-right: 5px;
     background-color: var(--front-color);
     color: #fff;
+    transition: 0.3s;
 }
 
 .headerUser button:hover {
@@ -67,3 +70,122 @@
 }
 
 /* ending HeaderNavbar styling  */
+
+
+
+/* starting NotFound styling :  */
+.notFoundComponent h1 {
+    font-size: 48px;
+    color: var(--front-color);
+    margin: 0;
+    text-align: center;
+    margin-top: 100px;
+}
+.notFoundComponent p {
+    font-size: 24px;
+    color: var(--hover-background-color);
+    text-align: center;
+    margin-top: 20px;
+}
+.notFoundComponent a {
+    color: var(--front-color);
+    text-decoration: none;
+    font-weight: bold;
+    margin-top: 20px;
+    display: block;
+    text-align: center;
+}
+.notFoundComponent a:hover {
+    text-decoration: underline;
+    color: var(--front-color);
+}
+/* ending NotFound styling :  */
+
+
+
+/* starting hero section styling :  */
+.hero {
+    background-image: url('../public/books2.jpg');
+    background-size: cover;
+    background-position: center;
+    height: 500px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    text-align: center;
+}
+
+.hero h1 {
+    font-size: 3rem;
+    margin: 0;
+    padding: 0;
+}
+
+.hero p {
+    font-size: 1.5rem;
+    margin-top: 1rem;
+}
+/* ending hero section styling :  */
+
+
+
+/* starting Featured Products section styling */
+.featured-products {
+    background-color: #f2f2f2;
+    padding: 80px 0;
+}
+
+.product-list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 10px;
+    margin-top: 50px;
+}
+
+.featured-products h2 {
+    font-size: 36px;
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.product {
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin: 20px;
+    text-align: center;
+}
+
+.product img {
+    width: 200px;
+    height: 200px;
+}
+
+.product h3 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.product p {
+    font-size: 18px;
+    color: #666;
+    margin-bottom: 20px;
+}
+
+.product .btn {
+    background-color: #ff9900;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.product .btn:hover {
+    background-color: #ffae33;
+}
+
+/* ending Featured Products section styling */
