@@ -1,0 +1,69 @@
+/* Start Global Variables */
+:root {
+    --background-color: #f2f2f2;
+    --front-color: #333;
+    --hover-background-color: #8d8181;
+}
+  /* End Global Variables */
+
+/* starting HeaderNavbar styling :  */
+.headerNav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--background-color);
+    padding: 10px;
+}
+
+.headerLogo a {
+    font-size: 24px;
+    font-weight: bold;
+    color: var(--front-color);
+    text-decoration: none;
+}
+
+.headerLogo a:hover {
+    color: var(--hover-background-color);
+}
+
+.headerSearch {
+    display: flex;
+    align-items: center;
+}
+
+.headerSearch input {
+    width: 300px;
+    padding: 5px;
+    border: none;
+    border-radius: 5px;
+    margin-right: 5px;
+}
+
+.headerSearch button {
+    padding: 5px 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: var(--front-color);
+    color: #fff;
+}
+
+.headerSearch button:hover {
+    background-color: var(--hover-background-color);
+    color: #333;
+}
+
+.headerUser button {
+    padding: 5px 10px;
+    border: none;
+    border-radius: 5px;
+    margin-right: 5px;
+    background-color: var(--front-color);
+    color: #fff;
+}
+
+.headerUser button:hover {
+    background-color: var(--hover-background-color);
+    color: #333;
+}
+
+/* ending HeaderNavbar styling  */
