@@ -14,10 +14,10 @@ return (
         {/* <!-- Featured products section --> */}
         <section className="featured-products all-books-style">
                 <h2>All Books</h2>
-                <div className="headerSearch">
+                {/* <div className="headerSearch">
                     <input type="text" placeholder="Search..."/>
                     <button type="submit">Search</button>
-                </div>
+                </div> */}
                 <div className="product-list">
                     <AllBooksList/>
                 </div>
