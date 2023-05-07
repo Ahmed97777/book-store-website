@@ -12,6 +12,9 @@ const LandFeaturesOrg = () => {
     {title:"Secrets of Winning", image:"/book7.jpg", price:"$90"},
     {title:"The Ultimate Interview", image:"/book8.jpg", price:"$150"},
     {title:"Jobs to be Done", image:"/book9.png", price:"$85"},
+    {title:"The Leader", image:"/book10.jpg", price:"$55"},
+    {title:"Seven Ancient", image:"/book11.jpg", price:"$78"},
+    {title:"Temple", image:"/book13.jpg", price:"$99"}
 ]
 
 
