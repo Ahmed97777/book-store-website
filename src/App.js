@@ -16,6 +16,7 @@ import LandingFeatures from './Components/LandingFeatures';
 import Footer from './Components/Footer';
 import AllBooks from './Components/AllBooks';
 import BookDetails from './Components/BookDetails';
+import RequestBook from './Components/RequestBook';
 
 function App() {
 
@@ -38,6 +39,8 @@ function App() {
             <Route  path="/all-books" element= {<div><AllBooks/></div>} />
 
             <Route  path="/book-details" element= {<div><BookDetails/></div>} />
+
+            <Route  path="/request-book" element= {<div><RequestBook/></div>} />
 
             <Route  path="*" element= {<div><NotFound/></div>} />
 
