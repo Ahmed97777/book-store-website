@@ -11,7 +11,7 @@ const Product = (props) => {
                 <img src={process.env.PUBLIC_URL + `${props.image}`} alt="Product"/>
                 <h3>{props.title}</h3>
                 <p className="price">{props.price}</p>
-                <a href="/" className="btn">Add to Cart</a>
+                <a href="/" className="btn">Order Book</a>
             </div>
 
         </>
