@@ -1,7 +1,9 @@
-import React from 'react'
+import React from 'react';
 import Product from './Product';
 
 const LandFeaturesOrg = () => {
+
+
 
     const productData = [{title:"The Way", image:"/book1.png", price:"$75"},
     {title:"Famous Last Words", image:"/book2.png", price:"$80"},
@@ -18,9 +20,11 @@ const LandFeaturesOrg = () => {
 ]
 
 
+
     return (
 
             <>
+
             
                 {
                     productData.map((e, i)=> {

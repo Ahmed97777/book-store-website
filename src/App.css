@@ -60,6 +60,15 @@
     color: #333;
 }
 
+.link-to-details {
+    text-decoration: none;
+    color: var(--front-color);
+}
+
+/* .the-book-details {
+    display: none;
+} */
+
 /* .headerSearch {
     display: flex;
     align-items: center;
@@ -265,9 +274,120 @@
 
 /* ending Featured Products section styling */
 
+/* starting BookDetails styling */
+.header-of-bookDetails {
+    background-color: var(--front-color);
+    color: #fff;
+    text-align: center;
+    padding: 10px;
+}
+
+.main-of-bookDetails {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 20px;
+}
+
+.book-image-details {
+    flex: 1 1 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 20px;
+}
+
+.book-image-details img {
+    max-width: 100%;
+    height: 345px;
+}
+
+.book-details {
+    flex: 1 1 400px;
+}
+
+.book-details h2 {
+    font-size: 24px;
+    margin-top: 0;
+}
+
+.book-details p {
+    font-size: 16px;
+    margin-bottom: 25px;
+}
+
+.book-details button {
+    background-color: var(--front-color);
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 10px;
+    border-radius: 5px;
+    transition: 0.3s;
+}
+
+.book-details button:hover {
+    background-color: var(--hover-background-color);
+    color: #333;
+}
+
+.buttonBookDetails {
+    background-color: var(--front-color);
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 10px;
+    border-radius: 5px;
+    transition: 0.3s;
+}
+
+.buttonBookDetails:hover {
+    background-color: var(--hover-background-color);
+    color: #333;
+}
+
+.comments-section {
+    margin-top: 2rem;
+    padding-left: 85px;
+}
+
+.comments-section h3 {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+}
+
+.comments-section ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.comments-section li {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #ddd;
+    border-radius: 0.5rem;
+    padding: 1rem;
+    margin-bottom: 1rem;
+}
+
+.comments-section li h4 {
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+}
+
+.comments-section li p {
+    font-size: 1rem;
+    line-height: 1.5;
+}
 
 
-
+/* ending BookDetails styling */
 
 /* starting footer styling */
 .footer {
