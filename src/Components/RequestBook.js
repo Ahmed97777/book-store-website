@@ -11,7 +11,6 @@ const RequestBook = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        // Save the book name in a variable or send it to the server using an HTTP request
         console.log('Book name:', bookName);
         setSubmitted(true);
         setBookName('');
@@ -33,13 +32,10 @@ return (
             {submitted && <p className='feedback-request' >Request book submitted!</p>}
         </div>
     
-    
-    
     </>
 
 )
 
 }
-
 
 export default RequestBook

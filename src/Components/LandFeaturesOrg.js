@@ -1,9 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { useEffect } from 'react';
 import Product from './Product';
+import { useNavigate } from 'react-router-dom';
 
 const LandFeaturesOrg = () => {
-
-
 
     const productData = [{title:"The Way", image:"/book1.png", price:"$75"},
     {title:"Famous Last Words", image:"/book2.png", price:"$80"},
@@ -19,6 +19,22 @@ const LandFeaturesOrg = () => {
     {title:"Temple", image:"/book13.jpg", price:"$99"}
 ]
 
+    const [cart, setCart] = useState([]);
+
+    const handleClick = (item) => {
+        setCart([...cart,item]);
+    };
+
+    useEffect(() => {
+        console.log("the complete cart : ");
+        console.log(cart);
+    }, [cart]);
+
+    const navigate = useNavigate();
+
+    const sendNowCart = () => {
+        navigate('/cart-page', { state: { cart } });
+    };
 
 
     return (
@@ -27,12 +43,14 @@ const LandFeaturesOrg = () => {
 
             
                 {
-                    productData.map((e, i)=> {
+                    productData.map((item, i)=> {
                         return (
-                            <Product key={i} title={e.title} image={e.image} price={e.price}/>
+                            <Product  key={i} item={item} handleClick={handleClick}  />
                         )
                     })
                 }
+
+                <h4  onClick={sendNowCart} className='GO-GO' >Go to Cart</h4>
                 
             
             </>

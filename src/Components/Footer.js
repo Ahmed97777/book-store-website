@@ -37,7 +37,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
                             </ul>
                         </div>
                     </div>
-                    <div class="row">
+                    <div className="row">
                         <div className="col-md-12">
                             <p>&copy; 2023 Our Book Store. All Rights Reserved.</p>
                         </div>

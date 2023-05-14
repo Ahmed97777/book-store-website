@@ -6,15 +6,6 @@ const BookDetails = () => {
     const location = useLocation();
     const selectedBook = location.state.selectedBook;
 
-    const printAndSee = () => {
-        console.log("we are in book details");
-        console.log(selectedBook);
-        console.log(selectedBook.title);
-        console.log(selectedBook.image);
-        console.log(selectedBook.price);
-    };
-
-    
 
     useEffect(() => {
         window.scrollTo(0, 0);
@@ -58,7 +49,6 @@ return (
                 <p>Publication Date: 01/01/2022</p>
                 <p>Price: {selectedBook.price}</p>
                 <p>Description: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam rutrum libero eget dolor convallis, id venenatis mi auctor.</p>
-                <button onClick={printAndSee} >Order Book</button>
             </div>
         </main>
 
@@ -74,18 +64,6 @@ return (
             </ul>
         </section>
 
-    
-        {/* <div className='the-book-details'>
-            <h2>{props.title}</h2>
-            <img src={process.env.PUBLIC_URL + `${props.image}`} alt="Product"/>
-            <p className="price">{props.price}</p>
-            <p>{props.description}</p>
-        </div> */}
-    
-    
-    
-    
-    
     </>
 
 )

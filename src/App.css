@@ -65,39 +65,6 @@
     color: var(--front-color);
 }
 
-/* .the-book-details {
-    display: none;
-} */
-
-/* .headerSearch {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-} */
-
-/* .headerSearch input {
-    width: 300px;
-    padding: 5px;
-    border: none;
-    border-radius: 5px;
-    margin-right: 5px;
-} */
-
-/* .headerSearch button {
-    padding: 5px 10px;
-    border: none;
-    cursor: pointer;
-    border-radius: 5px;
-    background-color: var(--front-color);
-    color: #fff;
-    transition: 0.3s;
-} */
-
-/* .headerSearch button:hover {
-    background-color: var(--hover-background-color);
-    color: #333;
-} */
-
 .headerUser button {
     padding: 5px 10px;
     cursor: pointer;
@@ -137,8 +104,6 @@
 } 
 /* ending HeaderNavbar styling  */
 
-
-
 /* starting NotFound styling :  */
 .notFoundComponent h1 {
     font-size: 48px;
@@ -167,8 +132,6 @@
 }
 /* ending NotFound styling :  */
 
-
-
 /* starting hero section styling :  */
 .hero {
     background-image: url('../public/books2.jpg');
@@ -193,8 +156,6 @@
     margin-top: 1rem;
 }
 /* ending hero section styling :  */
-
-
 
 /* starting Featured Products section styling */
 .featured-products {
@@ -305,6 +266,38 @@
     cursor: pointer;
 }
 
+.go-text {
+    text-align: center;
+    font-size: 30px;
+    color: greenyellow;
+    padding-top: 50%;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.go-text:hover {
+    color: green;
+}
+
+.make-order-text2 {
+    display: block;
+    margin: 1rem auto;
+    padding: 1rem;
+    font-size: 1.2rem;
+    border: none;
+    border-radius: 0.3rem;
+    cursor: pointer;
+    background-color: var(--front-color);
+    color: #fff;
+    transition: 0.3s;
+}
+
+.make-order-text2:hover {
+    background-color: var(--hover-background-color);
+    color: #333;
+}
+
+
 .request-book:hover {
     color: #834040;
 }
@@ -359,7 +352,21 @@
 
 .buttonBookDetails:hover {
     background-color: var(--hover-background-color);
-    color: #333;
+    color: black;
+}
+
+.add-to-cart {
+    background-color: rgb(232, 226, 116);
+    color: black;
+}
+
+.GO-GO {
+    color: green;
+}
+
+.add-to-cart:hover {
+    background-color: rgb(162, 157, 70);
+    color: rgb(153, 244, 128);
 }
 
 .comments-section {
@@ -498,3 +505,38 @@ form button[type="submit"] {
     text-align: center;
 }
 /* ending footer styling */
+
+/* starting cart styling */
+.cart-text {
+    text-align: center;
+    margin-top: 30px;
+}
+
+.total-price {
+    font-size: 24px;
+    text-align: center;
+    margin-bottom: 50px;
+    margin-top: 50px;
+}
+
+.total-price span {
+    color: red;
+}
+
+.cart-items {
+    margin: 30px auto;
+    padding: 0;
+    max-width: 600px;
+}
+
+.cart-items li {
+    display: flex;
+    justify-content: space-between;
+    border: 1px solid #322d2d;
+    background-color: #ccc;
+    border-radius: 25px;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+/* ending cart styling */
+

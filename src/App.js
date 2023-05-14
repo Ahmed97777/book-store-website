@@ -1,26 +1,16 @@
 import './App.css';
-// import { library } from '@fortawesome/fontawesome-svg-core';
-// import { faBook , faCartShopping, faUser, faAddressBook} from '@fortawesome/free-solid-svg-icons';
-// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-
-// import 'bootstrap/dist/css/bootstrap.min.css';
-// import 'jquery/dist/jquery.min.js';
-// import 'popper.js/dist/popper.min.js';
-// import 'bootstrap/dist/js/bootstrap.min.js';
-
 import {BrowserRouter, Routes, Route} from "react-router-dom";
 import HeaderNavbar from "./Components/HeaderNavbar";
 import NotFound from "./Components/NotFound"
 import LandingMain from './Components/LandingMain';
-import LandingFeatures from './Components/LandingFeatures';
 import Footer from './Components/Footer';
 import AllBooks from './Components/AllBooks';
 import BookDetails from './Components/BookDetails';
 import RequestBook from './Components/RequestBook';
+import CartPage from './Components/CartPage';
 
 function App() {
 
-  // library.add(faBook);
 
   return (
 
@@ -34,13 +24,16 @@ function App() {
         <BrowserRouter>
           <Routes>
 
-            <Route  path="/" element= {<div><LandingMain/><LandingFeatures/></div>} />
+
+            <Route  path="/" element= {<div><LandingMain/><AllBooks/></div>} />
 
             <Route  path="/all-books" element= {<div><AllBooks/></div>} />
 
             <Route  path="/book-details" element= {<div><BookDetails/></div>} />
 
             <Route  path="/request-book" element= {<div><RequestBook/></div>} />
+
+            <Route  path="/cart-page" element= {<div><CartPage/></div>} />
 
             <Route  path="*" element= {<div><NotFound/></div>} />
 
@@ -53,20 +46,6 @@ function App() {
       
       </>
 
-
-      {/* <h1>Welcome to our website</h1>
-
-      <div className="alert alert-primary" role="alert">
-        A simple primary alert—check it out!
-      </div>
-
-      <FontAwesomeIcon icon="book" />
-
-      <FontAwesomeIcon icon={faCartShopping} />
-
-      <FontAwesomeIcon icon={faUser} />
-
-      <FontAwesomeIcon icon={faAddressBook} /> */}
 
     </div>
   );
