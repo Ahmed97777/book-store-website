@@ -22,10 +22,10 @@ return (
     
         <div>
             <h1 className='request-text' >Request Book</h1>
-            <form onSubmit={handleSubmit}>
+            <form  className='form-request' onSubmit={handleSubmit}>
                 <div>
                     <label htmlFor="book-name">Book Name:</label>
-                    <input type="text" id="book-name" value={bookName} onChange={handleInputChange} />
+                    <input type="text" placeholder='ex: Harry Potter' id="book-name" value={bookName} onChange={handleInputChange} />
                 </div>
                 <button type="submit">Submit</button>
             </form>

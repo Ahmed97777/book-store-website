@@ -67,19 +67,22 @@ return (
     <>
 
         <div className='search-box'>
-                <input type="text" onChange={handleInputChange} />
-                <button onClick={handleSearch}>Search</button>
+                <input placeholder='Search...' type="text" onChange={handleInputChange} />
+                <button className='search-box-button' onClick={handleSearch}>Search</button>
+                <button  onClick={sendNowCart} className='go-cart-mode' >Go To Cart </button>
         </div>
 
-        {filteredBooks.map((item, i)=> {
-                        return (
-                            <Product  key={i} item={item} handleClick={handleClick}  />
-                        )
-                    })
-        }
+        <div className="product-list" >
+                {filteredBooks.map((item, i)=> {
+                                return (
+                                    <Product  key={i} item={item} handleClick={handleClick}  />
+                                )
+                            })
+                }
+        </div>
+
 
         
-        <h4  onClick={sendNowCart} className='go-text' >Go To Cart </h4>
 
     </>
 

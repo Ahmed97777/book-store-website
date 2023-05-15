@@ -28,23 +28,20 @@
 }
 
 .search-box {
-    display: grid;
-    margin-left: 29px;
-    margin-top: 38px;
-    height: 335px;
     text-align: center;
 }
 
 .search-box input {
-    text-align: center;
     font-size: 18px;
     padding: 5px;
     border: none;
     border-radius: 5px;
-    margin-bottom: 10px;
+    width: 250px;
+    margin-right: 15px;
 }
 
-.search-box button {
+.search-box-button {
+    width: 100px;
     font-size: 18px;
     padding: 5px;
     border: none;
@@ -55,9 +52,27 @@
     transition: 0.3s;
 }
 
-.search-box button:hover {
+.search-box-button:hover {
     background-color: var(--hover-background-color);
     color: #333;
+}
+
+.go-cart-mode {
+    width: 100px;
+    font-size: 18px;
+    background-color: rgb(232, 226, 116);
+    color: black;
+    padding: 5px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: 0.3s;
+    margin-left: 15px;
+}
+
+.go-cart-mode:hover {
+    background-color: rgb(162, 157, 70);
+    color: rgb(153, 244, 128);
 }
 
 .link-to-details {
@@ -103,6 +118,139 @@
         
 } 
 /* ending HeaderNavbar styling  */
+
+/* starting login styling  */
+.login-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 90px;
+}
+
+.login-container h1 {
+    margin-bottom: 2rem;
+}
+
+.login-container form {
+    width: 300px;
+    padding: 2rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+}
+
+.form-group {
+    margin-bottom: 1rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+.form-group input[type="text"],
+.form-group input[type="password"] {
+    width: 100%;
+    padding: 0.5rem;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 7px;
+}
+
+.login-container button[type="submit"] {
+    width: 100%;
+    padding: 0.75rem;
+    margin-top: 30px;
+    font-size: 1rem;
+    background-color: var(--front-color);
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.login-container button[type="submit"]:hover {
+    background-color: var(--hover-background-color);
+    color: #333;
+}
+
+/* ending login styling  */
+
+/* starting signUp styling */
+.signup-container {
+    display: flex;
+    margin-bottom: 90px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.signup-container h1 {
+    margin-bottom: 2rem;
+}
+
+.signup-container form {
+    width: 300px;
+    padding: 2rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+}
+
+.form-group-2 {
+    margin-bottom: 1rem;
+}
+
+.form-group-2 label {
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+.form-group-2 input[type="text"],
+.form-group-2 input[type="email"],
+.form-group-2 input[type="password"] {
+    width: 100%;
+    padding: 0.5rem;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+}
+
+.signup-container button[type="submit"] {
+    width: 100%;
+    padding: 0.75rem;
+    font-size: 1rem;
+    margin-top: 30px;
+    background-color: var(--front-color);
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.signup-container button[type="submit"]:hover {
+    background-color: var(--hover-background-color);
+    color: #333;
+}
+
+.signup-container p {
+    text-align: center;
+    margin-top: 1rem;
+}
+
+p a {
+    color: var(--front-color);
+    text-decoration: none;
+}
+
+p a:hover {
+    font-weight: bold;
+    text-decoration: underline;
+}
+/* ending signUp styling */
 
 /* starting NotFound styling :  */
 .notFoundComponent h1 {
@@ -266,19 +414,6 @@
     cursor: pointer;
 }
 
-.go-text {
-    text-align: center;
-    font-size: 30px;
-    color: greenyellow;
-    padding-top: 50%;
-    text-decoration: underline;
-    cursor: pointer;
-}
-
-.go-text:hover {
-    color: green;
-}
-
 .make-order-text2 {
     display: block;
     margin: 1rem auto;
@@ -427,7 +562,7 @@ form label {
     margin-bottom: 10px;
 }
 
-form input[type="text"] {
+.form-request input[type="text"] {
     padding: 10px;
     font-size: 18px;
     border: none;
@@ -441,14 +576,21 @@ form input[type="text"] {
     color: green;
 }
 
-form button[type="submit"] {
+.form-request button[type="submit"] {
     padding: 10px 20px;
     font-size: 18px;
-    background-color: #2196f3;
+    background-color: var(--front-color);
     color: #fff;
     border: none;
-    margin-bottom: 80px;
+    border-radius: 5px;
     cursor: pointer;
+    transition: 0.3s;
+    margin-bottom: 80px;
+}
+
+.form-request button[type="submit"]:hover {
+    background-color: var(--hover-background-color);
+    color: #333;
 }
 
 /* ending Request Book styling */

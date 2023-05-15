@@ -2,6 +2,7 @@ import React from 'react'
 
 const HeaderNavbar = () => {
 
+
     return (
 
     <>
@@ -11,8 +12,12 @@ const HeaderNavbar = () => {
                 <a href="/">Book Store</a>
             </div>
             <div className="headerUser">
-                <button type="submit">Login</button>
-                <button type="submit">Sign Up</button>
+                <a href='/all-books' ><button type="submit" >All Books</button></a>
+                <a href='/request-book' ><button type="submit" >Request Book</button></a>
+                <a href='/login-page' ><button type="submit">Login</button></a>
+                <a href='/signUp-page' ><button type="submit">Sign Up</button></a>
+                
+                
             </div>
         </nav>
     

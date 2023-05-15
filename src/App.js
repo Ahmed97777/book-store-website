@@ -8,6 +8,9 @@ import AllBooks from './Components/AllBooks';
 import BookDetails from './Components/BookDetails';
 import RequestBook from './Components/RequestBook';
 import CartPage from './Components/CartPage';
+import LandingFeatures from './Components/LandingFeatures';
+import LoginPage from './Components/LoginPage';
+import SignUpPage from './Components/SignUpPage';
 
 function App() {
 
@@ -24,8 +27,11 @@ function App() {
         <BrowserRouter>
           <Routes>
 
+            <Route  path="/" element= {<div><LandingMain/><LandingFeatures/></div>} />
 
-            <Route  path="/" element= {<div><LandingMain/><AllBooks/></div>} />
+            <Route  path="/login-page" element= {<div><LoginPage/></div>} />
+
+            <Route  path="/signUp-page" element= {<div><SignUpPage/></div>} />
 
             <Route  path="/all-books" element= {<div><AllBooks/></div>} />
 
