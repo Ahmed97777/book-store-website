@@ -48,7 +48,7 @@ return (
                 <p>Publisher: Publisher Name</p>
                 <p>Publication Date: 01/01/2022</p>
                 <p>Price: {selectedBook.price}</p>
-                <p>Description: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam rutrum libero eget dolor convallis, id venenatis mi auctor.</p>
+                <p>Description: One of the best featured books in the history as it make whoever reads it think and act differently.</p>
             </div>
         </main>
 
