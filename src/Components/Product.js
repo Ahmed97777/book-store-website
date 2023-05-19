@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 
 const Product = ({item, handleClick}) => {
 
-    const { title, image, price } = item;
+    const { bookName, image, price } = item;
 
     const navigate = useNavigate();
 
@@ -15,7 +15,8 @@ const Product = ({item, handleClick}) => {
     };
 
     useEffect(() => {
-    }, [selectedBook]);
+        console.log(selectedBook);
+    }, [item]);
 
 
     const sendToBookDetails = () => {
@@ -30,8 +31,8 @@ const Product = ({item, handleClick}) => {
 
                 <div className="product"  onClick={() => handleBookClick(item)}>
                     <img   src={process.env.PUBLIC_URL + `${image}`} alt="Product"/>
-                    <h3  >{title}</h3>
-                    <p className="price">{price}</p>
+                    <h3  >{bookName}</h3>
+                    <p className="price">{price}$</p>
                     <button className='buttonBookDetails' onClick={sendToBookDetails} >View Book Details</button>
                     <button className='buttonBookDetails add-to-cart' onClick={()=>handleClick(item)} >Add To Cart</button>
                 </div>

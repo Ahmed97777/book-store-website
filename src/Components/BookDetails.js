@@ -1,11 +1,38 @@
-import React, { useEffect } from 'react';
+import React, { useEffect,useState } from 'react';
 import { useLocation } from 'react-router-dom';
 
 const BookDetails = () => {
 
+  
+
     const location = useLocation();
     const selectedBook = location.state.selectedBook;
 
+    const [books,setBooks] = useState({});
+    const [isBook,setIsBook] = useState(false);
+    const fetchData = () => {
+  
+        return fetch(selectedBook.selfLink)
+              .then((response) => response.json())
+              .then((data) => {setBooks(data)})
+            
+      }
+    
+      useEffect(() => {
+        console.log(selectedBook);
+        fetchData()
+        
+      },[])
+  
+        useEffect(() => {
+
+            if (Object.keys(books).length>0){
+                setIsBook(true);
+            }else{
+                setIsBook(false);
+            }
+       
+        },[books])
 
     useEffect(() => {
         window.scrollTo(0, 0);
@@ -43,12 +70,12 @@ return (
                 <img src={process.env.PUBLIC_URL + `${selectedBook.image}`} alt="Product"/>
             </div>
             <div className="book-details">
-                <h2>{selectedBook.title}</h2>
-                <p>Author: Author Name</p>
-                <p>Publisher: Publisher Name</p>
-                <p>Publication Date: 01/01/2022</p>
-                <p>Price: {selectedBook.price}</p>
-                <p>Description: One of the best featured books in the history as it make whoever reads it think and act differently.</p>
+                <h2>{selectedBook.bookName}</h2>
+                <p>Author: {isBook?books.volumeInfo.authors:"None"} </p> 
+                <p>Publisher: {isBook?books.volumeInfo.publisher:"None"}</p>
+                <p>Publication Date: {isBook?books.volumeInfo.publishedDate:"None"}</p>
+                <p>Price: ${selectedBook.price}</p>
+                <p>Description: {isBook?books.volumeInfo.description:"None"}</p>
             </div>
         </main>
 

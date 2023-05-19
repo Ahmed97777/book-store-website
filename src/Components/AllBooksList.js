@@ -6,7 +6,9 @@ import { useNavigate } from 'react-router-dom';
 
     const AllBooksList = () => {
 
-        const allBooksList = [{title:"The Way", image:"/book1.png", price:"$75"},
+        const ss = 
+        [
+        {title:"The Way", image:"/book1.png", price:"$75"},
         {title:"Famous Last Words", image:"/book2.png", price:"$80"},
         {title:"Book MockUp", image:"/book3.jpg", price:"$50"},
         {title:"Little Rabbit", image:"/book4.png", price:"$35"},
@@ -19,6 +21,28 @@ import { useNavigate } from 'react-router-dom';
         {title:"Seven Ancient", image:"/book11.jpg", price:"$78"},
         {title:"Temple", image:"/book13.jpg", price:"$99"}
     ]
+
+    const[allBooksList,setBooks] = useState([]);
+
+
+const fetchData = () => {
+  
+    return fetch("http://localhost:8081/api/v1/book/books")
+          .then((response) => response.json())
+          .then((data) => {setBooks(data)})
+  }
+
+  useEffect(() => {
+    fetchData()
+    .then(setFilteredBooks(allBooksList));
+  },[])
+  
+  useEffect(() => {
+   
+    setFilteredBooks(allBooksList);
+  },[allBooksList])
+
+    
 
 
     const [cart, setCart] = useState([]);
@@ -39,16 +63,15 @@ import { useNavigate } from 'react-router-dom';
     const [searchTerm, setSearchTerm] = useState('');
     const [filteredBooks, setFilteredBooks] = useState(allBooksList);
 
-    const handleInputChange = (event) => {
-        setSearchTerm(event.target.value);
-    };
+ 
     
-    const handleSearch = () => {
-        if (searchTerm === '') {
+    const handleSearch = (event) => {
+        console.log(event.target.value);
+        if (event.target.value === '') {
         setFilteredBooks(allBooksList);
         } else {
         const filtered = allBooksList.filter((book) =>
-            book.title.toLowerCase().includes(searchTerm.toLowerCase())
+            book.bookName.toLowerCase().includes(event.target.value.toLowerCase())
         );
         setFilteredBooks(filtered);
         }
@@ -67,8 +90,8 @@ return (
     <>
 
         <div className='search-box'>
-                <input placeholder='Search...' type="text" onChange={handleInputChange} />
-                <button className='search-box-button' onClick={handleSearch}>Search</button>
+                <input placeholder='Search...' type="text" onChange={handleSearch} />
+                {/* <button className='search-box-button' onClick={handleSearch}>Search</button> */}
                 <button  onClick={sendNowCart} className='go-cart-mode' >Go To Cart </button>
         </div>
 

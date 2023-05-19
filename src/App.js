@@ -1,4 +1,5 @@
 import './App.css';
+import { useState, createContext } from "react";
 import {BrowserRouter, Routes, Route} from "react-router-dom";
 import HeaderNavbar from "./Components/HeaderNavbar";
 import NotFound from "./Components/NotFound"
@@ -12,49 +13,59 @@ import LandingFeatures from './Components/LandingFeatures';
 import LoginPage from './Components/LoginPage';
 import SignUpPage from './Components/SignUpPage';
 
+
 function App() {
 
 
   return (
 
+ 
+    
     <div className="App">
 
-      <>
+<>
 
-        <HeaderNavbar/>
+  <HeaderNavbar />
 
-        
-        <BrowserRouter>
-          <Routes>
+ 
 
-            <Route  path="/" element= {<div><LandingMain/><LandingFeatures/></div>} />
+  <BrowserRouter>
+    <Routes>
 
-            <Route  path="/login-page" element= {<div><LoginPage/></div>} />
+      <Route  path="/" element= {<div><LandingMain/><LandingFeatures/></div>} />
 
-            <Route  path="/signUp-page" element= {<div><SignUpPage/></div>} />
+      <Route  path="/login-page" element= {<div><LoginPage /></div>} />
 
-            <Route  path="/all-books" element= {<div><AllBooks/></div>} />
+      <Route  path="/signUp-page" element= {<div><SignUpPage /></div>} />
 
-            <Route  path="/book-details" element= {<div><BookDetails/></div>} />
+      <Route  path="/all-books" element= {<div><AllBooks/></div>} />
 
-            <Route  path="/request-book" element= {<div><RequestBook/></div>} />
+      <Route  path="/book-details" element= {<div><BookDetails/></div>} />
 
-            <Route  path="/cart-page" element= {<div><CartPage/></div>} />
+      <Route  path="/request-book" element= {<div><RequestBook/></div>} />
 
-            <Route  path="*" element= {<div><NotFound/></div>} />
+      <Route  path="/cart-page" element= {<div><CartPage/></div>} />
 
-          </Routes>
-        </BrowserRouter>
+      <Route  path="*" element= {<div><NotFound/></div>} />
 
-
-        <Footer/>
-        
-      
-      </>
+    </Routes>
+  </BrowserRouter>
 
 
-    </div>
+  <Footer/>
+  
+
+</>
+
+
+</div>
+
+ 
+  
+
+    
   );
 }
 
 export default App;
+
