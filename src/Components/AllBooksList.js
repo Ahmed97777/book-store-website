@@ -2,7 +2,8 @@ import React, { useState } from 'react';
 import { useEffect } from 'react';
 import Product from './Product';
 import { useNavigate } from 'react-router-dom';
-
+import {createUserWithEmailAndPassword,onAuthStateChanged, signOut} from 'firebase/auth'
+import {auth} from '../firebase-config'
 
     const AllBooksList = () => {
 
@@ -85,6 +86,14 @@ const fetchData = () => {
     };
 
 
+    const [user, setUser] = useState();
+
+    useEffect(() => {
+        onAuthStateChanged(auth, (currentUser) => setUser(currentUser))
+        // Notice the empty dependency array, there to make sure the effect is only run once when the component mounts
+      }, []) 
+    
+
 return (
 
     <>
@@ -92,7 +101,7 @@ return (
         <div className='search-box'>
                 <input placeholder='Search...' type="text" onChange={handleSearch} />
                 {/* <button className='search-box-button' onClick={handleSearch}>Search</button> */}
-                <button  onClick={sendNowCart} className='go-cart-mode' >Go To Cart </button>
+               { user && <button  onClick={sendNowCart} className='go-cart-mode' >Go To Cart </button>}
         </div>
 
         <div className="product-list" >

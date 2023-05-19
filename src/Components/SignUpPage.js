@@ -2,6 +2,7 @@ import {React, useState, useEffect} from 'react'
 import {createUserWithEmailAndPassword,onAuthStateChanged} from 'firebase/auth'
 import {auth} from '../firebase-config'
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
 const SignUpPage = () => {
     const [registerEmail, setRegisterEmail] = useState("")
     const [registerPassword, setRegisterPassword] = useState("")
@@ -12,7 +13,7 @@ const SignUpPage = () => {
     const [address, setAddress] = useState("")
     const [phone, setPhone] = useState("")
 
-   
+
 
     const [user, setUser] = useState({});
     const navigate = useNavigate();
@@ -21,14 +22,43 @@ const SignUpPage = () => {
         onAuthStateChanged(auth, (currentUser) => setUser(currentUser))
         // Notice the empty dependency array, there to make sure the effect is only run once when the component mounts
       }, []) 
+
+
   
+
+      
+  
+      
     const register = async () => {
         
 
         try {
             const user =  await createUserWithEmailAndPassword(
             auth,registerEmail,registerPassword
-            );
+            ).then((user) => {
+                axios.post('http://localhost:8081/api/v1/customer', { 
+                    "id": user.user.uid,
+                    "email" : registerEmail,
+                    "firstName": firstName,
+                    "lastName": lastName,
+                    "address": address,
+                    "phone": phone,
+                    
+                  },
+                  )
+                  .then((response) => {
+                    console.log(response);
+                      // Handle data
+                  })
+                  .catch((error) => {
+                    console.log(error);
+                  })
+            });
+
+         
+
+           
+            
             navigate("/");
 
         } catch (error) {

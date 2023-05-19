@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 const RequestBook = () => {
-
+    const navigate = useNavigate();
     const [bookName, setBookName] = useState('');
     const [submitted, setSubmitted] = useState(false);
 
@@ -10,28 +12,33 @@ const RequestBook = () => {
     };
 
     const handleSubmit = (e) => {
-        e.preventDefault();
-        console.log('Book name:', bookName);
-        setSubmitted(true);
-        setBookName('');
+
+      
+
+        const url = 'http://localhost:8081/api/v1/book/request/' + bookName
+        axios.post(url)
+        navigate("/");
+
     };
 
 return (
 
     <>
-    
-        <div>
+    <div className='divCont2'>
+    <div className='divCont'>
             <h1 className='request-text' >Request Book</h1>
-            <form  className='form-request' onSubmit={handleSubmit}>
+            <div  className='form-request' onSubmit={handleSubmit}>
                 <div>
                     <label htmlFor="book-name">Book Name:</label>
                     <input type="text" placeholder='ex: Harry Potter' id="book-name" value={bookName} onChange={handleInputChange} />
                 </div>
-                <button type="submit">Submit</button>
-            </form>
+                <button onClick={handleSubmit} type="submit">Submit</button>
+            </div>
             {submitted && <p className='feedback-request' >Request book submitted!</p>}
         </div>
     
+    </div>
+        
     </>
 
 )

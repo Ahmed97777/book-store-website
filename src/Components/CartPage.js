@@ -1,11 +1,20 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState} from 'react';
 import { useLocation } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 import axios from "axios";
+import {createUserWithEmailAndPassword,onAuthStateChanged, signOut} from 'firebase/auth'
+import {auth} from '../firebase-config'
 import qs from "qs";
 
 const CartPage = () => {
 
+    const [user, setUser] = useState();
+
+    useEffect(() => {
+        onAuthStateChanged(auth, (currentUser) => setUser(currentUser))
+        // Notice the empty dependency array, there to make sure the effect is only run once when the component mounts
+      }, []) 
+    
     useEffect(() => {
         window.scrollTo(0, 0);
         }, []);
@@ -41,7 +50,7 @@ const CartPage = () => {
         navigate('/');
 
         axios.post('http://localhost:8081/api/v1/order/create', null, { params: {
-            "customerId": "12",
+            "customerId": user.uid,
             "bookId" : booksId,
             "quantity": 12
           },

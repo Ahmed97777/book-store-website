@@ -29,11 +29,12 @@ const HeaderNavbar = () => {
             </div>
             <div className="headerUser">
                 <a href='/all-books' ><button type="submit" >All Books</button></a>
-                <a href='/request-book' ><button type="submit" >Request Book</button></a>
+               { user &&<a href='/request-book' ><button type="submit" >Request Book</button></a>}
                 { !user && <a href='/login-page' ><button type="submit">Login</button></a>}
                 { !user && <a href='/signUp-page' ><button type="submit">Sign Up</button></a>}
                 { user && <button onClick={logout}>logout</button>}
-     
+              
+
             </div>
         </nav>
     </>

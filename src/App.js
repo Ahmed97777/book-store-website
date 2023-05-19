@@ -2,7 +2,7 @@ import './App.css';
 import { useState, createContext } from "react";
 import {BrowserRouter, Routes, Route} from "react-router-dom";
 import HeaderNavbar from "./Components/HeaderNavbar";
-// import NotFound from "./Components/NotFound"
+import NotFound from "./Components/NotFound"
 import LandingMain from './Components/LandingMain';
 import Footer from './Components/Footer';
 import AllBooks from './Components/AllBooks';
@@ -45,9 +45,10 @@ function App() {
 
       <Route  path="/request-book" element= {<div><RequestBook/></div>} />
 
+      <Route  path="/cart-page" element= {<div><CartPage/></div>} />
             {/* <Route  path="*" element= {<div><NotFound/></div>} /> */}
 
-      <Route  path="*" element= {<div><AdminPanel/></div>} />
+      <Route  path="/admin" element= {<div><AdminPanel/></div>} />
 
       <Route  path="*" element= {<div><NotFound/></div>} />
 

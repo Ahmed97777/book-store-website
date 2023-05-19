@@ -14,6 +14,21 @@
     background-color: var(--background-color);
     padding: 10px;
 }
+.divCont{
+    width: 100%;
+
+ padding: 2rem;
+margin: 10px;
+ border: 1px solid #ccc;
+
+ border-radius: 5px;
+
+ background-color: #f9f9f9;
+}
+.divCont2{
+  width: 100%;
+  text-align: center;
+}
 
 .headerLogo a {
     font-size: 24px;

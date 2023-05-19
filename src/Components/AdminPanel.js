@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useEffect } from 'react';
-
+import axios from "axios";
 const AdminPanel = () => {
 
     const [booksList, setBooksList] = useState([
@@ -16,30 +16,69 @@ const AdminPanel = () => {
     const [newOrderToSend, setNewOrderToSend] = useState({});
 
 
+    const[allBooksList,setBooks] = useState([]);
+
+
+    const fetchData = () => {
+      
+        return fetch("http://localhost:8081/api/v1/book/books")
+              .then((response) => response.json())
+              .then((data) => {setBooks(data)})
+      }
+    
+      useEffect(() => {
+        fetchData()
+
+      },[])
+
 
     const handleAddBook = () => {
+        
         const title = prompt('Enter the book title:');
         const price = prompt('Enter the book price:');
         const selfLink = prompt('Enter the book selfLink:');
         const stockNum = prompt('Enter the book stockNum:');
+        const image = prompt('Enter the book image url:');
     
-        if (title && price && selfLink && stockNum) {
+        if (title && price && selfLink && stockNum&&image) {
         const newBook = { title, price, selfLink, stockNum };
-        setNewBookToSend({ title, price, selfLink, stockNum });
+         setNewBookToSend({ "bookName" : title, "price" : Number(price), "selfLink"
+        : selfLink, "stockNumber":Number(stockNum),"image":image })
         console.log(newBookToSend);
         setBooksList([...booksList, newBook]);
+        window.location.reload(false);
         }
     };
 
     useEffect(() => {
-        console.log(newBookToSend);
-        console.log(newOrderToSend);
-    }, [newBookToSend,newOrderToSend]);
+   
+    }, [newBookToSend,newOrderToSend,allBooksList]);
+    
+    useEffect(()=>{
+        
+        if(Object.keys(newBookToSend).length>0){
+            console.log(newBookToSend);
+            axios.post('http://localhost:8081/api/v1/book/saveBook', { 
+                "bookName": newBookToSend.bookName,
+                "image":newBookToSend.image,
+                "price": newBookToSend.price,
+                "selfLink":newBookToSend.selfLink,
+                "stockNumber":newBookToSend.stockNum
+                                    
+                                  }).then(setNewBookToSend({}))
+        }
     
 
+
+
+    },[newBookToSend])
+
     const handleDeleteBook = (index) => {
+        const url = 'http://localhost:8081/api/v1/book/delete/' + index
+        axios.delete(url).then(setNewBookToSend({}))
         const updatedList = booksList.filter((_, i) => i !== index);
         setBooksList(updatedList);
+        window.location.reload(false);
     };
 
 
@@ -53,25 +92,48 @@ const AdminPanel = () => {
 
 
     const handleAddOrder = () => {
-        const orderId = prompt('Enter the book orderId:');
-        const customerId = prompt('Enter the customerId URL:');
-        const orderItems = prompt('Enter the book orderItems:');
+        // const orderId = prompt('Enter the book orderId:');
+        // const customerId = prompt('Enter the customerId URL:');
+        // const orderItems = prompt('Enter the book orderItems:');
     
-        if (orderId && customerId && orderItems) {
-        const newBook = { orderId, customerId, orderItems };
-        setNewOrderToSend({ orderId, customerId, orderItems});
-        console.log(newOrderToSend);
-        setOrdersList([...ordersList, newBook]);
-        }
+        // if (orderId && customerId && orderItems) {
+        // const newBook = { orderId, customerId, orderItems };
+        // setNewOrderToSend({ orderId, customerId, orderItems});
+        // console.log(newOrderToSend);
+        // setOrdersList([...ordersList, newBook]);
+        // }
     };
     
 
-    const handleDeleteOrder = (index) => {
-        const updatedList = ordersList.filter((_, i) => i !== index);
-        setOrdersList(updatedList);
-    };
+    // const handleDeleteOrder = (index) => {
+    //     console.log("index");
+
+    // };
 
 
+    // const register = async () => {
+        
+    //             try {
+    //                 const user =  await axios.post('http://localhost:8081/api/v1/customer', { 
+    //                     "id": user.user.uid,
+    //                     "email" : registerEmail,
+    //                     "firstName": firstName,
+    //                     "lastName": lastName,
+    //                     "address": address,
+    //                     "phone": phone,
+                        
+    //                   },
+    //                   )
+    //             } catch (error) {
+                    
+    //             }
+           
+            
+    //         navigate("/");
+
+        
+
+    // }
 
 
 
@@ -87,6 +149,7 @@ return (
             <table className='admin-books'>
                 <thead>
                     <tr>
+                        <th>id</th>
                         <th>Title</th>
                         {/* <th>Image</th> */}
                         <th>Price</th>
@@ -96,16 +159,17 @@ return (
                     </tr>
                 </thead>
                 <tbody>
-                    {booksList.map((book, index) => (
+                    {allBooksList.map((book, index) => (
                         <tr key={index}>
-                            <td>{book.title}</td>
+                            <td>{book.id}</td>
+                            <td>{book.bookName}</td>
                             {/* <td> */}
                                 {/* <img  className='admin-image-books' src={book.image} alt={book.title + " photo"} /> */}
                                 {/* <td>{book.image}</td> */}
                             {/* </td> */}
                             <td>{book.price}</td>
                             <td>
-                                <button onClick={() => handleDeleteBook(index)}>Delete</button>
+                                <button onClick={() => handleDeleteBook(book.id)}>Delete</button>
                             </td>
                         </tr>
                     ))}
@@ -122,7 +186,7 @@ return (
 
 
 
-
+{/* 
         <div className='parent-admin-panel' >
 
             <h1 className="admin-table-label">Orders Table</h1>
@@ -134,21 +198,21 @@ return (
                     <tr>
                         <th>Order Id</th>
                         <th>Customer Id</th>
-                        <th>Order Items</th>
+                        <th>Order Items</th> */}
                         {/* <th>Action</th> */}
-                        <th><p className='add-book-text' ><button className='add-book-button' onClick={handleAddOrder}>Add Order</button></p></th>
+                        {/* <th><p className='add-book-text' ><button className='add-book-button' onClick={handleAddOrder}>Add Order</button></p></th> */}
                         
-                    </tr>
+                    {/* </tr>
                 </thead>
                 <tbody>
                     {ordersList.map((book, index) => (
                         <tr key={index}>
-                            <td>{book.orderId}</td>
+                            <td>{book.orderId}</td> */}
                             {/* <td> */}
                                 {/* <img  className='admin-image-books' src={book.image} alt={book.title + " photo"} /> */}
-                                <td>{book.customerId}</td>
+                                {/* <td>{book.customerId}</td> */}
                             {/* </td> */}
-                            <td>{book.orderItems}</td>
+                            {/* <td>{book.orderItems}</td>
                             <td>
                                 <button onClick={() => handleDeleteOrder(index)}>Delete</button>
                             </td>
@@ -159,7 +223,7 @@ return (
 
             <div className='space' ></div>
 
-        </div>
+        </div> */}
 
         
         
